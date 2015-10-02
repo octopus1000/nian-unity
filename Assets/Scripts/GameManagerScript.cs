@@ -2,7 +2,10 @@
 using System.Collections;
 
 public class GameManagerScript : MonoBehaviour {
+	public void gameStart() {
+		Application.LoadLevel (1);
+	}
 	public void gameOver() {
-		Application.LoadLevel ("gameover");
+		Application.LoadLevel (2);
 	}
 }
