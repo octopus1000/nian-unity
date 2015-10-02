@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour {
 
 	private int player_speed = 5;
 	private int accelerate_speed = 30;
-	private int player_hight = 5;
+	private int player_height = 8;
 	private Rigidbody2D rb;
 	private Animator anim;
 	public GameObject weapon;
@@ -29,13 +29,13 @@ public class PlayerController : MonoBehaviour {
 
 	public void jump (){
 		Debug.Log ("jump");
-		rb.velocity = new Vector2 (player_hight,5);
+		rb.velocity = new Vector2 (player_speed,player_height);
 		anim.Play ("jump",-1,0f);
 	}
 
 	public void down (){
 		Debug.Log ("down");
-		rb.velocity = new Vector2 (player_speed,-player_hight);
+		rb.velocity = new Vector2 (player_speed,-player_height);
 		anim.Play ("crouch",-1,0f);
 	}
 
@@ -44,8 +44,21 @@ public class PlayerController : MonoBehaviour {
 		Instantiate (weapon, weapon_p, Quaternion.identity); 
 	}
 
+	public void magic(){
+		StartCoroutine(MyCoroutine());
+	}
+
+
 	public void accelerate (){
 		rb.velocity = new Vector2 (accelerate_speed,0);
+	}
+
+	IEnumerator MyCoroutine(){
+		accelerate ();
+		Debug.Log (rb.velocity);
+		yield return new WaitForSeconds (1.0f);
+		run ();
+		Debug.Log (rb.velocity);
 	}
 
 }
