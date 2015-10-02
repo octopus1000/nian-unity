@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CrackScript : MonoBehaviour {
-
+	
 	// Use this for initialization
 	void Start () {
 

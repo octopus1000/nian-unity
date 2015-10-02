@@ -26,6 +26,8 @@ public class Runner : MonoBehaviour {
 
 	public int addCoin() {
 		coins += 1;
+		//Update UI
+		UIManagerScript.updateCoin(coins);
 		return coins;
 	}
 	public int decreaseLife() {
