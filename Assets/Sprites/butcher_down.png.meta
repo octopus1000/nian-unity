@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: d8e7ccfcce06c48f38ea8331bdfb72e6
+timeCreated: 1443731345
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: butcher_down_0
+    21300002: butcher_down_1
+    21300004: butcher_down_2
+    21300006: butcher_down_3
+    21300008: butcher_down_4
+    21300010: butcher_down_5
+    21300012: butcher_down_6
+    21300014: butcher_down_7
+    21300016: butcher_down_8
+    21300018: butcher_down_9
+    21300020: butcher_down_10
+    21300022: butcher_down_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: butcher_down_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 254
+        width: 70
+        height: 101
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 253
+        width: 87
+        height: 104
+      alignment: 9
+      pivot: {x: .5, y: .540000021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 256
+        width: 96
+        height: 97
+      alignment: 9
+      pivot: {x: .5, y: .620000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_3
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 260
+        width: 99
+        height: 79
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 139
+        width: 99
+        height: 79
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 139
+        width: 99
+        height: 79
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_6
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 139
+        width: 99
+        height: 79
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_7
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 139
+        width: 99
+        height: 79
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 13
+        width: 99
+        height: 79
+      alignment: 9
+      pivot: {x: .5, y: .75}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_9
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 13
+        width: 96
+        height: 97
+      alignment: 9
+      pivot: {x: .5, y: .620000005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_10
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 9
+        width: 87
+        height: 104
+      alignment: 9
+      pivot: {x: .5, y: .540000021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butcher_down_11
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 13
+        width: 70
+        height: 101
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
