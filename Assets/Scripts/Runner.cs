@@ -32,6 +32,9 @@ public class Runner : MonoBehaviour {
 	}
 	public int decreaseLife() {
 		life -= 1;
+		if (life <= 0) {
+			die();
+		}
 		return life;
 	}
 	public void die() {
