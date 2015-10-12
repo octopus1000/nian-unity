@@ -10,15 +10,15 @@ public class WeaponController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("weapon fired");
-		//		weapon_ani.Play ("fly",-1,0f);
-		weapon_rb = GetComponent<Rigidbody2D> ();
-		weapon_rb.velocity = new Vector2 (weapon_speed, 0);
-		weapon_ani = GetComponent<Animator> ();
+		if (GetComponent<Rigidbody2D> ()) {
+			weapon_rb = GetComponent<Rigidbody2D> ();
+			weapon_rb.velocity = new Vector2 (weapon_speed, 0);
+			weapon_ani = GetComponent<Animator> ();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	void OnBecameInvisible () {

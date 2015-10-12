@@ -25,16 +25,22 @@ public class Runner : MonoBehaviour {
 
 	public int addCoin() {
 		coins += 1;
+		//Update UI
+		UIManagerScript.updateCoin(coins);
 		return coins;
 	}
 	public int getCoin(){
 		return coins;
 	}
-	public void decreaseCoin(){
-		coins = 0;
+	public void decreaseCoin(int num){
+		coins -= num;
+		UIManagerScript.updateCoin(coins);
 	}
 	public int decreaseLife() {
 		life -= 1;
+		if (life <= 0) {
+			die();
+		}
 		return life;
 	}
 	public void die() {

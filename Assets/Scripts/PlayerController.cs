@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour {
 	private const int DIE = 3;
 
 	private int state;
-	private int player_speed = 5;
-	private int accelerate_speed = 30;
-	private int player_height = 8;
-	private int activate_num = 5;
+	private int player_speed = 10;
+	private int accelerate_speed = 20;
+	private int player_height = 15;
+	private int activate_num = 10;
 	private bool unstoppable_state = false;
 	private Rigidbody2D rb;
 	private Runner runner;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 		//debug
 		if (runner.getCoin () >= activate_num) {
 			Debug.Log(runner.getCoin());
-			runner.decreaseCoin ();
+			runner.decreaseCoin (activate_num);
 			unstoppable();
 		}
 	}
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour {
 		accelerate ();
 		anim.Play ("boost",-1,0f);
 		Debug.Log (rb.velocity);
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (0.7f);
 		run ();
 		Debug.Log (rb.velocity);
 	}
@@ -97,5 +97,9 @@ public class PlayerController : MonoBehaviour {
 		yield return new WaitForSeconds (5.0f);
 		unstoppable_state = false;
 		Destroy (halo_ins);
+	}
+
+	public bool getUnstoppableState(){
+		return this.unstoppable_state;
 	}
 }
