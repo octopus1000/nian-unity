@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\CrackScript.cs" />
      <Compile Include="Assets\Scripts\CreepScript.cs" />
      <Compile Include="Assets\Scripts\GameManagerScript.cs" />
+     <Compile Include="Assets\Scripts\GodPlayerScript.cs" />
      <Compile Include="Assets\Scripts\MilestoneScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Runner.cs" />
