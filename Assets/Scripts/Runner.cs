@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Runner : MonoBehaviour {
 	public int life;
-	public float speed;
 
 	private float initX;
 	private Rigidbody2D body;
@@ -13,12 +12,7 @@ public class Runner : MonoBehaviour {
 		initX = transform.position.x;
 		body = GetComponent<Rigidbody2D> ();
 	}
-
-	// Update is called once per frame
-	void Update () {
-		speed = body.velocity.x;
-	}
-
+	
 	public float getRunDist () {
 		return transform.position.x - initX;
 	}

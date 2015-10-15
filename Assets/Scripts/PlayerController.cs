@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	private Animator anim;
 	public GameObject weapon;
 	public GameObject halo;
+	public GodPlayerScript godPlayer;
 
 	// Use this for initialization
 	void Start () {
@@ -39,10 +40,18 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void FixedUpdate(){
+		float speedX = godPlayer.getSpeedX();
+		//lag behind god player
+		if (transform.position.x < godPlayer.transform.position.x) {
+			speedX *= 1.2f;
+		}
+		rb.velocity = new Vector2 (speedX, rb.velocity.y);
+	}
+
 	public void run (){
 		Debug.Log ("run");
 		state = NORMAL;
-		rb.velocity = new Vector2 (player_speed,0);
 	}
 
 	public void jump (){
