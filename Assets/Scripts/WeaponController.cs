@@ -13,7 +13,7 @@ public class WeaponController : MonoBehaviour {
 		if (GetComponent<Rigidbody2D> ()) {
 			weapon_rb = GetComponent<Rigidbody2D> ();
 			weapon_rb.velocity = new Vector2 (weapon_speed, 0);
-			weapon_ani = GetComponent<Animator> ();
+			//weapon_ani = GetComponent<Animator> ();
 		}
 	}
 	
