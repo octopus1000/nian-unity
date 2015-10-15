@@ -4,13 +4,13 @@ using System.Collections;
 public class Runner : MonoBehaviour {
 	public int life;
 
-	private float initX;
-	private Rigidbody2D body;
+	private float initX; //charater axis
 	private int coins;
+	private bool win;
 
 	void Start () {
+		win = false;
 		initX = transform.position.x;
-		body = GetComponent<Rigidbody2D> ();
 	}
 	
 	public float getRunDist () {
@@ -19,8 +19,6 @@ public class Runner : MonoBehaviour {
 
 	public int addCoin() {
 		coins += 1;
-		//Update UI
-		UIManagerScript.updateCoin(coins);
 		return coins;
 	}
 	public int getCoin(){
@@ -28,7 +26,6 @@ public class Runner : MonoBehaviour {
 	}
 	public void decreaseCoin(int num){
 		coins -= num;
-		UIManagerScript.updateCoin(coins);
 	}
 	public int decreaseLife() {
 		life -= 1;
@@ -38,12 +35,17 @@ public class Runner : MonoBehaviour {
 		return life;
 	}
 	public void die() {
-		GameObject gameController = GameObject.FindWithTag("GameController");
-		if (gameController) {
-			GameManagerScript script = gameController.GetComponent<GameManagerScript>();
-			if (script) {
-				script.gameOver();
-			}
+		//load game over scene
+		GameEventScript.TriggerGameOver();
+	}
+
+	public void playerWin() {
+		win = true;
+	}
+
+	void OnBecameInvisible () {
+		if (!win) {
+			die ();
 		}
 	}
 }
