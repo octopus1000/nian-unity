@@ -6,6 +6,8 @@ TagManager:
   tags:
   - "\uFF33skillBtn"
   - weapon
+  - PlayerParts
+  - PlayerFoot
   layers:
   - Default
   - TransparentFX
