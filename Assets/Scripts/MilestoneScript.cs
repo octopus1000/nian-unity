@@ -10,7 +10,13 @@ public class MilestoneScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "Player") {
-			GameManagerScript.gameWin();
+			Runner runner = col.gameObject.GetComponent<Runner>();
+			if (runner) {
+				runner.playerWin();
+			} else {
+				Debug.LogError("zhang: no Runner script in Player");
+			}
+			GameEventScript.TriggerGameWin();
 		}
 	}
 }

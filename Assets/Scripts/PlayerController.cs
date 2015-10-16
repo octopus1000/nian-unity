@@ -40,7 +40,15 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate(){
+	void OnCollisionEnter2D (Collision2D col) {
+		if (state == IN_AIR) {
+			anim.SetTrigger("onGround");
+			Debug.Log ("collision");
+			state = NORMAL;
+		}
+	}
+
+	void FixedUpdate(){	
 		float speedX = godPlayer.getSpeedX();
 		//lag behind god player
 		if (transform.position.x < godPlayer.transform.position.x) {
@@ -58,23 +66,15 @@ public class PlayerController : MonoBehaviour {
 		if (state == NORMAL) {
 			Debug.Log ("jump");
 			rb.velocity = new Vector2 (player_speed, player_height);
-			anim.Play ("jump", -1, 0f);
+			anim.Play ("Knight2JumpUp", -1, 0f);
 			state = IN_AIR;
 		}
 	}
 
-	public void down (){
-		if (state == NORMAL) {
-			Debug.Log ("down");
-			rb.velocity = new Vector2 (player_speed, -player_height);
-			anim.Play ("crouch", -1, 0f);
-			state = CROUCH;
-		}
-	}
-
 	public void attack (){
-		Vector2 weapon_p = new Vector2(rb.position.x+1,rb.position.y);
-		Instantiate (weapon, weapon_p, Quaternion.identity); 
+		anim.Play ("Knight2Attack", -1, 0f);
+//		Vector2 weapon_p = new Vector2(rb.position.x+1,rb.position.y);
+//		Instantiate (weapon, weapon_p, Quaternion.identity); 
 	}
 
 	public void magic(){
