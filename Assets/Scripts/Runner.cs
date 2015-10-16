@@ -44,6 +44,7 @@ public class Runner : MonoBehaviour {
 	}
 
 	void OnBecameInvisible () {
+		Debug.Log ("invisible");
 		if (!win) {
 			die ();
 		}

@@ -14,13 +14,13 @@ public class PlayerController : MonoBehaviour {
 	private int accelerate_speed = 20;
 	private int player_height = 15;
 	private int activate_num = 10;
-	private bool unstoppable_state = false;
 	private Rigidbody2D rb;
 	private Runner runner;
 	private Animator anim;
 	public GameObject weapon;
 	public GameObject halo;
 	public GodPlayerScript godPlayer;
+	public bool rushState = false;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +36,16 @@ public class PlayerController : MonoBehaviour {
 		if (runner.getCoin () >= activate_num) {
 			Debug.Log(runner.getCoin());
 			runner.decreaseCoin (activate_num);
-			unstoppable();
+			if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) 
+			{
+				Ray ray = Camera.main.ScreenPointToRay( Input.GetTouch(0).position );
+				RaycastHit hit;
+				
+				if ( Physics.Raycast(ray, out hit) && hit.transform.gameObject.name == "Knight2")
+				{
+					magic();  
+				}
+			}
 		}
 	}
 
@@ -72,43 +81,26 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void attack (){
-		anim.Play ("Knight2Attack", -1, 0f);
-//		Vector2 weapon_p = new Vector2(rb.position.x+1,rb.position.y);
-//		Instantiate (weapon, weapon_p, Quaternion.identity); 
+		anim.Play ("Knight2Attack", -1, 0f); 
 	}
 
 	public void magic(){
 		StartCoroutine(MyCoroutine());
 	}
-
-
+	
 	public void accelerate (){
-		rb.velocity = new Vector2 (accelerate_speed,0);
+		godPlayer.setSpeedX (accelerate_speed);
 	}
 
 	IEnumerator MyCoroutine(){
 		accelerate ();
-		anim.Play ("boost",-1,0f);
+		anim.Play ("Knight2Rush",-1,0f);
+		rushState = true;
 		Debug.Log (rb.velocity);
-		yield return new WaitForSeconds (0.7f);
-		run ();
+		yield return new WaitForSeconds (2.0f);
+		godPlayer.setSpeedX (player_speed);
+		rushState = false;
 		Debug.Log (rb.velocity);
 	}
 
-	public void unstoppable(){
-		StartCoroutine (StateCoroutine ());
-	}
-
-	IEnumerator StateCoroutine(){
-		Vector2 halo_p = new Vector2 (rb.position.x, rb.position.y + 3);
-		GameObject halo_ins = (GameObject)Instantiate (halo, halo_p, Quaternion.identity);
-		unstoppable_state = true;
-		yield return new WaitForSeconds (5.0f);
-		unstoppable_state = false;
-		Destroy (halo_ins);
-	}
-
-	public bool getUnstoppableState(){
-		return this.unstoppable_state;
-	}
 }

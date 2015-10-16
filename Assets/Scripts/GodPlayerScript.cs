@@ -20,4 +20,8 @@ public class GodPlayerScript : MonoBehaviour {
 	public float getSpeedX() {
 		return bd.velocity.x;
 	}
+
+	public void setSpeedX(int speed) {
+		bd.velocity = new Vector2(speed, 0);
+	}
 }

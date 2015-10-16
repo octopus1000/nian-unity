@@ -18,7 +18,7 @@ public class CreepScript : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			PlayerController script = col.gameObject.GetComponent<PlayerController>();
 			//hit top of a creep, creep dies
-			if (collideTop(col.contacts[0].point, (Vector2)transform.position) || script.getUnstoppableState()) {
+			if (collideTop(col.contacts[0].point, (Vector2)transform.position) || script.rushState) {
 				die();
 			} else {
 				Runner runner = col.gameObject.GetComponent<Runner>();
