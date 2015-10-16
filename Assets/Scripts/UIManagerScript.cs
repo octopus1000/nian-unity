@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIManagerScript : MonoBehaviour {
 	public Text coinTxt;
-	public Button upBtn, downBtn, attackBtn, magicBtn;
+	public Button upBtn, attackBtn;
 	public Text pauseBtnTxt;
 	public Canvas canvas;
 	public Runner runner;
@@ -25,9 +25,7 @@ public class UIManagerScript : MonoBehaviour {
 
 	public bool enableButton(bool status) {
 		upBtn.interactable = status;
-		downBtn.interactable = status;
 		attackBtn.interactable = status;
-		magicBtn.interactable = status;
 		return status;
 	}
 

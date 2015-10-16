@@ -2,21 +2,14 @@
 using System.Collections;
 
 public class CrackScript : MonoBehaviour {
-	
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.name == "Player") {
-			Runner runner = col.gameObject.GetComponent<Runner>();
-			Debug.Log("Coin:" + runner.addCoin());
+		if (col.gameObject.tag == "PlayerParts") {
+			//player parent has runner script which controls life and 
+			Runner runner = col.gameObject.transform.parent.GetComponent<Runner>();
+			if (runner) {
+				Debug.Log("Coin:" + runner.addCoin());
+			}
 			Destroy(gameObject);
 		}
 	}
