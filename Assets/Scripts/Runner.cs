@@ -12,6 +12,10 @@ public class Runner : MonoBehaviour {
 		win = false;
 		initX = transform.position.x;
 	}
+
+	void FixedUpdate () {
+		Utility.playerPosX = transform.position.x;
+	}
 	
 	public float getRunDist () {
 		return transform.position.x - initX;
@@ -43,10 +47,22 @@ public class Runner : MonoBehaviour {
 		win = true;
 	}
 
+	//we need a render component to get this func called
 	void OnBecameInvisible () {
 		Debug.Log ("invisible");
 		if (!win) {
 			die ();
 		}
+	}
+
+	public bool takeDamage(Collision2D coll) {
+
+		ContactPoint2D c = coll.contacts[0];
+
+		if (c.collider.gameObject.tag == "PlayerFoot") {
+			return false;
+		}
+		decreaseLife();
+		return true;
 	}
 }

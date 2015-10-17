@@ -4,7 +4,7 @@ using System.Collections;
 public class Scroll : MonoBehaviour {
 
 	public Rigidbody2D playerBody;
-	public GameObject player;
+	public GameObject godplayer;
 	private float distanceX;
 	
 	private Vector2 offset;
@@ -12,9 +12,9 @@ public class Scroll : MonoBehaviour {
 	
 	void Start ()
 	{
-		playerBody = player.GetComponent<Rigidbody2D> ();
+		playerBody = godplayer.GetComponent<Rigidbody2D> ();
 		rend = GetComponent<Renderer> ();
-		distanceX = transform.position.x - player.transform.position.x;
+		distanceX = transform.position.x - godplayer.transform.position.x;
 
 	}
 	
@@ -22,6 +22,6 @@ public class Scroll : MonoBehaviour {
 	{
 		offset.x = Time.time * playerBody.velocity.x / 70;
 		rend.material.SetTextureOffset("_MainTex", offset);
-		transform.position = new Vector3 (player.transform.position.x + distanceX, transform.position.y, transform.position.z);
+		transform.position = new Vector3 (godplayer.transform.position.x + distanceX, transform.position.y, transform.position.z);
 	}
 }

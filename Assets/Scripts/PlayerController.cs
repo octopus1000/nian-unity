@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private int state;
 	private int player_speed = 10;
 	private int accelerate_speed = 20;
-	private int player_height = 15;
+	private int player_height = 22;
 	private int activate_num = 10;
 	private Rigidbody2D rb;
 	private Runner runner;
