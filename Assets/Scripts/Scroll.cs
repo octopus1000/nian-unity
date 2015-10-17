@@ -20,7 +20,7 @@ public class Scroll : MonoBehaviour {
 	
 	void FixedUpdate ()
 	{
-		offset.x = Time.time * playerBody.velocity.x / 70;
+		offset.x = Time.time * playerBody.velocity.x / 700;
 		rend.material.SetTextureOffset("_MainTex", offset);
 		transform.position = new Vector3 (godplayer.transform.position.x + distanceX, transform.position.y, transform.position.z);
 	}

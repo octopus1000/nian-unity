@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	private const int IN_AIR = 1;
 	private const int CROUCH = 2;
 	private const int DIE = 3;
+	private int jump_count = 0;
 
 	private int state;
 	private int player_speed = 10;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject halo;
 	public GodPlayerScript godPlayer;
 	public bool rushState = false;
+	public LayerMask touchInputMask;
 
 	// Use this for initialization
 	void Start () {
@@ -29,31 +31,16 @@ public class PlayerController : MonoBehaviour {
 		runner = GetComponent<Runner> ();
 		run ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		//debug
-		if (runner.getCoin () >= activate_num) {
-			Debug.Log(runner.getCoin());
-			runner.decreaseCoin (activate_num);
-			if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) 
-			{
-				Ray ray = Camera.main.ScreenPointToRay( Input.GetTouch(0).position );
-				RaycastHit hit;
-				
-				if ( Physics.Raycast(ray, out hit) && hit.transform.gameObject.name == "Knight2")
-				{
-					magic();  
-				}
-			}
-		}
-	}
 
 	void OnCollisionEnter2D (Collision2D col) {
 		if (state == IN_AIR) {
 			anim.SetTrigger("onGround");
 			Debug.Log ("collision");
-			state = NORMAL;
+			state = NORMAL;	
+			if(jump_count==2) 
+			{
+				jump_count=0;
+			}
 		}
 	}
 
@@ -72,11 +59,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void jump (){
-		if (state == NORMAL) {
+		if (state == NORMAL || (state == IN_AIR && jump_count<2)) {
 			Debug.Log ("jump");
 			rb.velocity = new Vector2 (player_speed, player_height);
 			anim.Play ("Knight2JumpUp", -1, 0f);
 			state = IN_AIR;
+			jump_count++;
 		}
 	}
 
@@ -85,7 +73,13 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void magic(){
-		StartCoroutine(MyCoroutine());
+		//rush
+		if (runner.getCoin () >= activate_num) {
+			Debug.Log("enough coin");
+			runner.decreaseCoin(activate_num);
+			StartCoroutine(MyCoroutine());
+		}
+
 	}
 	
 	public void accelerate (){
