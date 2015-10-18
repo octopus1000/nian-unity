@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class BgManagerScript : MonoBehaviour {
 
-	public int numOfGround;
+	private const int numOfGround = 5;
+	private const int numOfHill = 2;
 	public GameObject groundPrefab;
 	public GameObject hill;
 
@@ -28,13 +29,19 @@ public class BgManagerScript : MonoBehaviour {
 		//groundPrefab must be an instance which has valid transform position
 		for (int i = 0; i < numOfGround; i++) {
 			GameObject ground = (GameObject)Instantiate (groundPrefab);
-			GameObject newhill = (GameObject)Instantiate (hill);
 			groundQ.Enqueue(ground);
+		}
+
+		for (int i = 0; i < numOfHill; i++) {
+			GameObject newhill = (GameObject)Instantiate (hill);
 			hillQ.Enqueue(newhill);
 		}
 
 		for (int i = 0; i < numOfGround; i++) {
 			recycle(ref groundQ, ref nextPos, shift);
+		}
+
+		for (int i = 0; i < numOfHill; i++) {
 			recycle(ref hillQ, ref nextPosh, shifth);
 		}
 	}
