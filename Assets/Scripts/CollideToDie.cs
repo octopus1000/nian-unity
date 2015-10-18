@@ -19,4 +19,8 @@ public class CollideToDie : MonoBehaviour {
 			runner.decreaseLife();
 		}
 	}
+
+	void OnBecameInvisible() {
+		Destroy (gameObject);
+	}
 }

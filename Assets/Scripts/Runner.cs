@@ -59,9 +59,6 @@ public class Runner : MonoBehaviour {
 
 		ContactPoint2D c = coll.contacts[0];
 
-		if (c.collider.gameObject.tag == "PlayerFoot") {
-			return false;
-		}
 		decreaseLife();
 		return true;
 	}

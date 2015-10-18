@@ -8,9 +8,13 @@ public class CrackScript : MonoBehaviour {
 			//player parent has runner script which controls life and 
 			Runner runner = col.gameObject.transform.parent.GetComponent<Runner>();
 			if (runner) {
-				Debug.Log("Coin:" + runner.addCoin());
+				runner.addCoin();
 			}
 			Destroy(gameObject);
 		}
+	}
+
+	void OnBecameInvisible() {
+		Destroy (gameObject);
 	}
 }
