@@ -7,9 +7,11 @@ public class Runner : MonoBehaviour {
 	private float initX; //charater axis
 	private int coins;
 	private bool win;
+	private PlayerController controller;
 
 	void Start () {
 		win = false;
+		controller = GetComponent<PlayerController> ();
 		initX = transform.position.x;
 	}
 
@@ -59,7 +61,11 @@ public class Runner : MonoBehaviour {
 
 		ContactPoint2D c = coll.contacts[0];
 
-		if (c.collider.gameObject.tag == "PlayerFoot") {
+		/*if (c.collider.gameObject.tag == "PlayerFoot") {
+			return false;
+		}*/
+		Debug.Log("attackState:" + controller.attackState);
+		if (controller.attackState) {
 			return false;
 		}
 		decreaseLife();

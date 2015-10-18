@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	public GameObject halo;
 	public GodPlayerScript godPlayer;
 	public bool rushState = false;
+	public bool attackState = false;
 	public LayerMask touchInputMask;
 
 	// Use this for initialization
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate(){	
+	void FixedUpdate(){
 		float speedX = godPlayer.getSpeedX();
 		//lag behind god player
 		if (transform.position.x < godPlayer.transform.position.x) {
@@ -69,7 +70,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void attack (){
-		anim.Play ("Knight2Attack", -1, 0f); 
+		attackState = true;
+		anim.Play ("Knight2Attack", -1, 0f);
+		Debug.Log ("Attack");
+	}
+
+	public void finishAttack(){
+		attackState = false;
+		Debug.Log ("finislh attack");
+		anim.Play ("Knight2Walk", -1, 0f);
 	}
 
 	public void magic(){

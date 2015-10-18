@@ -5571,6 +5571,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4bd025fbe3c94be43946d59e7ae40d3c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bd025fbe3c94be43946d59e7ae40d3c, type: 2}
   m_IsPrefabParent: 0
@@ -8804,6 +8808,7 @@ MonoBehaviour:
   halo: {fileID: 186442, guid: 8c8b94eb95a5b43b4be6a376c6cf0208, type: 2}
   godPlayer: {fileID: 936058549}
   rushState: 0
+  attackState: 0
   touchInputMask:
     serializedVersion: 2
     m_Bits: 0
@@ -9410,6 +9415,14 @@ Prefab:
     - target: {fileID: 100016, guid: a045f68cdb5c54499954642165d32ae8, type: 2}
       propertyPath: m_TagString
       value: PlayerFoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: a045f68cdb5c54499954642165d32ae8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: a045f68cdb5c54499954642165d32ae8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a045f68cdb5c54499954642165d32ae8, type: 2}
