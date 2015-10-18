@@ -7,9 +7,11 @@ public class Runner : MonoBehaviour {
 	private float initX; //charater axis
 	private int coins;
 	private bool win;
+	private Animator anim;
 
 	void Start () {
 		win = false;
+		anim = GetComponent<Animator> ();
 		initX = transform.position.x;
 	}
 
@@ -32,6 +34,7 @@ public class Runner : MonoBehaviour {
 		coins -= num;
 	}
 	public int decreaseLife() {
+		anim.Play ("Knight2Hurt", -1, 0f);
 		life -= 1;
 		if (life <= 0) {
 			die();
