@@ -14,6 +14,8 @@ public class CreepScript : MonoBehaviour {
 	}
 
 	void OnBecameVisible () {
+		Debug.Log ("hi orc");
+		bd.isKinematic = false;
 		bd.velocity = new Vector2 (-speedX, 0);
 
 		if (ani) {
@@ -38,7 +40,7 @@ public class CreepScript : MonoBehaviour {
 		if (coll.gameObject.tag == "Player") {
 			Runner runner = coll.gameObject.GetComponent<Runner>();
 			if (runner) {
-				if (runner.takeDamage(coll)) {
+				if (runner.takeDamage(1)) {
 					bd.velocity = new Vector2(-speedX, 0);
 				} else {
 					die();

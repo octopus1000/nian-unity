@@ -6,6 +6,7 @@ public class UIManagerScript : MonoBehaviour {
 	public Text coinTxt;
 	public Button upBtn, attackBtn;
 	public Text pauseBtnTxt;
+	public Text lifeTxt;
 	public Canvas canvas;
 	public Runner runner;
 
@@ -15,11 +16,17 @@ public class UIManagerScript : MonoBehaviour {
 
 	void Update() {
 		updateCoin (runner.getCoin ());
+		updateLife (runner.life);
 	}
 
 	public int updateCoin(int coinNum) {
 		//coinTxt.text = coinNum;
 		coinTxt.text = coinNum.ToString();
+		return 0;
+	}
+
+	public int updateLife (int life) {
+		lifeTxt.text = "Life:" + life;
 		return 0;
 	}
 

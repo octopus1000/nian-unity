@@ -7,16 +7,17 @@ public class CollideToDie : MonoBehaviour {
 		if (col.tag == "PlayerParts") {
 			//decrease runner life
 			Runner runner = col.gameObject.transform.parent.GetComponent<Runner>();
-			runner.decreaseLife();
+			runner.takeDamage(0);
 		}
 	}
 
 
 	void OnCollisionEnter2D(Collision2D col) {
+		Debug.Log ("abc:" + col.gameObject.tag);
 		if (col.gameObject.tag == "Player") {
 			//decrease runner life
 			Runner runner = col.gameObject.GetComponent<Runner>();
-			runner.decreaseLife();
+			runner.takeDamage(0);
 		}
 	}
 

@@ -9,8 +9,8 @@ public class MilestoneScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Player") {
-			Runner runner = col.gameObject.GetComponent<Runner>();
+		if (col.gameObject.tag == "PlayerParts") {
+			Runner runner = col.gameObject.transform.parent.GetComponent<Runner>();
 			if (runner) {
 				runner.playerWin();
 			} else {

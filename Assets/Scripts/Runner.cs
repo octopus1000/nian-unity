@@ -7,6 +7,7 @@ public class Runner : MonoBehaviour {
 	private float initX; //charater axis
 	private int coins;
 	private bool win;
+	private bool shield = false;
 	private PlayerController controller;
 	private Animator anim;
 
@@ -15,6 +16,13 @@ public class Runner : MonoBehaviour {
 		controller = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
 		initX = transform.position.x;
+	}
+
+	void Update() {
+		if (Utility.outOfScreen(transform.position, new Vector3(0,0,0))) {
+			Debug.Log("player out of screen");
+			die();
+		}
 	}
 
 	void FixedUpdate () {
@@ -53,24 +61,28 @@ public class Runner : MonoBehaviour {
 	}
 
 	//we need a render component to get this func called
-	void OnBecameInvisible () {
+	/*void OnBecameInvisible () {
 		Debug.Log ("invisible");
 		if (!win) {
 			die ();
 		}
-	}
+	}*/
 
-	public bool takeDamage(Collision2D coll) {
-
-		ContactPoint2D c = coll.contacts[0];
-		/*if (c.collider.gameObject.tag == "PlayerFoot") {
-			return false;
-		}*/
-		Debug.Log("attackState:" + controller.attackState);
-		if (controller.attackState) {
+	//obstacleType - 0 (collideToDie) 2 - creep
+	public bool takeDamage(int obstacleType) {
+		if (controller.attackState && obstacleType == 1) {
 			return false;
 		}
-		decreaseLife();
+
+		if (!shield) {
+			decreaseLife ();
+			shield = true;
+			Invoke("removeShield", 1f);
+		}
 		return true;
+	}
+
+	void removeShield() {
+		shield = false;
 	}
 }
