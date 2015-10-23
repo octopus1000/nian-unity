@@ -51,7 +51,10 @@ public class PlayerController : MonoBehaviour {
 		if (transform.position.x < godPlayer.transform.position.x) {
 			speedX *= 1.2f;
 		}
-		rb.velocity = new Vector2 (speedX, rb.velocity.y);
+		Vector2 targetV = new Vector2 (speedX, rb.velocity.y);
+
+		//use add force instead of change speed directly to simulate physics
+		rb.AddForce ( (targetV - rb.velocity) * rb.mass / Time.fixedDeltaTime, ForceMode2D.Force);
 	}
 
 	public void run (){

@@ -14,8 +14,7 @@ public class CreepScript : MonoBehaviour {
 	}
 
 	void OnBecameVisible () {
-		Debug.Log ("hi orc");
-		bd.isKinematic = false;
+		//bd.isKinematic = false;
 		bd.velocity = new Vector2 (-speedX, 0);
 
 		if (ani) {
@@ -27,6 +26,7 @@ public class CreepScript : MonoBehaviour {
 
 	void FixedUpdate() {
 		if ((transform.position.x - Utility.playerPosX) < 10 && ani != null && !attackState) {
+			bd.velocity = new Vector2(0,0);
 			ani.SetBool("attack", true);
 			attackState = true;
 		}
@@ -51,9 +51,25 @@ public class CreepScript : MonoBehaviour {
 		}
 	}
 
+	//set orc to trigger
+	void OnTriggerEnter2D(Collider2D coll) {
+		if (coll.tag == "PlayerParts" || coll.tag == "weapon") {
+			Runner runner = coll.gameObject.transform.parent.GetComponent<Runner>();
+			if (runner) {
+				if ( !runner.takeDamage(1)) {
+					die();
+				}
+			} else {
+				Debug.Log("Can not find runner script");
+			}
+		}
+	}
+
+
 	void die() {
 		//animation....
 		Debug.Log ("Creep die");
-		Destroy (gameObject);
+		ani.Play ("die");
+		//Destroy (gameObject);
 	}
 }

@@ -13,7 +13,6 @@ public class CollideToDie : MonoBehaviour {
 
 
 	void OnCollisionEnter2D(Collision2D col) {
-		Debug.Log ("abc:" + col.gameObject.tag);
 		if (col.gameObject.tag == "Player") {
 			//decrease runner life
 			Runner runner = col.gameObject.GetComponent<Runner>();
