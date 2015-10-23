@@ -9,6 +9,12 @@ TagManager:
   - PlayerParts
   - PlayerFoot
   - CrackInfo
+  - Slider
+  - Life1
+  - Life2
+  - Life3
+  - Life4
+  - Life0
   layers:
   - Default
   - TransparentFX
