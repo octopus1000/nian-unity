@@ -54,7 +54,8 @@ public class PlayerController : MonoBehaviour {
 		Vector2 targetV = new Vector2 (speedX, rb.velocity.y);
 
 		//use add force instead of change speed directly to simulate physics
-		rb.AddForce ( (targetV - rb.velocity) * rb.mass / Time.fixedDeltaTime, ForceMode2D.Force);
+		//rb.AddForce ( (targetV - rb.velocity) * rb.mass / Time.fixedDeltaTime, ForceMode2D.Force);
+		rb.velocity = targetV;
 	}
 
 	public void run (){

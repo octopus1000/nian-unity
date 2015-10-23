@@ -44,9 +44,10 @@ public class Runner : MonoBehaviour {
 		coins -= num;
 	}
 	public int decreaseLife() {
-		bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
+		//bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
 		anim.Play ("Knight2Hurt", -1, 0f);
 		life -= 1;
+		Debug.Log (life);
 		if (life <= 0) {
 			die();
 		}
