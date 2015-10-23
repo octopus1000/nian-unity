@@ -6,15 +6,15 @@ public class Runner : MonoBehaviour {
 
 	private float initX; //charater axis
 	private int coins;
-	private bool win;
 	private bool shield = false;
 	private PlayerController controller;
 	private Animator anim;
+	private Rigidbody2D bd;
 
 	void Start () {
-		win = false;
 		controller = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
+		bd = GetComponent<Rigidbody2D> ();
 		initX = transform.position.x;
 	}
 
@@ -44,6 +44,7 @@ public class Runner : MonoBehaviour {
 		coins -= num;
 	}
 	public int decreaseLife() {
+		bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
 		anim.Play ("Knight2Hurt", -1, 0f);
 		life -= 1;
 		if (life <= 0) {
@@ -52,21 +53,8 @@ public class Runner : MonoBehaviour {
 		return life;
 	}
 	public void die() {
-		//load game over scene
 		GameEventScript.TriggerGameOver();
 	}
-
-	public void playerWin() {
-		win = true;
-	}
-
-	//we need a render component to get this func called
-	/*void OnBecameInvisible () {
-		Debug.Log ("invisible");
-		if (!win) {
-			die ();
-		}
-	}*/
 
 	//obstacleType - 0 (collideToDie) 2 - creep
 	public bool takeDamage(int obstacleType) {
