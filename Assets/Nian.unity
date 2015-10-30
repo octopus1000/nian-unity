@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1472354985}
-  distance: 1089
+  distance: 1000
 --- !u!1001 &173256118
 Prefab:
   m_ObjectHideFlags: 0
