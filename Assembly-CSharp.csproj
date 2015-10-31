@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Minimap.cs" />
      <Compile Include="Assets\Orc Warrior\Scripts\MouseController.cs" />
+     <Compile Include="Assets\Play_Pop.cs" />
      <Compile Include="Assets\Scripts\BgManagerScript.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CollideToDie.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Utility.cs" />
      <Compile Include="Assets\Scripts\WeaponController.cs" />
      <Compile Include="Assets\Scripts\haloController.cs" />
+     <Compile Include="Assets\Setting_Panel.cs" />
      <None Include="Assets\knights\readme.txt" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
