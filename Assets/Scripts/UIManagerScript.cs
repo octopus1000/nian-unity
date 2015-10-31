@@ -36,7 +36,7 @@ public class UIManagerScript : MonoBehaviour {
 //		life_objects = GameObject.FindGameObjectsWithTag ("Life");
 		Image image;
 		int i;
-		Debug.Log (life_objects[0].name+" "+life_objects[1].name+" "+life_objects[2].name+" "+life_objects[3].name+" "+life_objects[4].name+" ");
+		//Debug.Log (life_objects[0].name+" "+life_objects[1].name+" "+life_objects[2].name+" "+life_objects[3].name+" "+life_objects[4].name+" ");
 		if (life % 2 == 0) {
 			for (i = 0; i < life/2; i++) {
 				image = life_objects [i].GetComponent<Image> ();

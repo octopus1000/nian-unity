@@ -47,7 +47,7 @@ public class Runner : MonoBehaviour {
 		//bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
 		anim.Play ("Knight2Hurt", -1, 0f);
 		life -= 1;
-		Debug.Log (life);
+		//Debug.Log (life);
 		if (life <= 0) {
 			die();
 		}
@@ -57,10 +57,12 @@ public class Runner : MonoBehaviour {
 		GameEventScript.TriggerGameOver();
 	}
 
-	//obstacleType - 0 (collideToDie) 2 - creep
-	public bool takeDamage(int obstacleType) {
-		if (controller.attackState && obstacleType == 1) {
-			return false;
+	//@param {bool} isDestructable
+	//@return {bool} whether player is attacking
+	public bool takeDamage(bool isDestructable) {
+		//when obstacles can be destroyed by attacking
+		if (isDestructable && controller.attackState) {
+			return controller.attackState;
 		}
 
 		if (!shield) {
@@ -68,7 +70,7 @@ public class Runner : MonoBehaviour {
 			shield = true;
 			Invoke("removeShield", 1f);
 		}
-		return true;
+		return controller.attackState;
 	}
 
 	void removeShield() {
