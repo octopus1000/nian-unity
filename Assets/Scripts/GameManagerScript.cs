@@ -3,11 +3,13 @@ using System.Collections;
 
 public class GameManagerScript : MonoBehaviour {
 	enum Status {Running, Paused};
-
+	
 	private Status gameStatus = Status.Running;
 	private UIManagerScript UI;
 
 	void Start() {
+
+		AudioListener.pause = false;
 		//delegate gamewin method
 		GameEventScript.GameWin += gameWin;
 		GameEventScript.GameStart += gameStart;
@@ -18,7 +20,11 @@ public class GameManagerScript : MonoBehaviour {
 			Debug.LogWarning("Zhang: No UI manager is Found");
 		}
 	}
-	
+
+	public void gameMenu() {
+		Application.LoadLevel (0);
+	}
+
 	public void gameStart() {
 		gameResume ();
 		Application.LoadLevel (1);
@@ -65,4 +71,8 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
+	public void mute(){
+		AudioListener.volume = Mathf.Abs(AudioListener.volume-1);
+		Debug.Log (AudioListener.volume);
+	}
 }

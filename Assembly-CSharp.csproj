@@ -45,7 +45,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Minimap.cs" />
      <Compile Include="Assets\Orc Warrior\Scripts\MouseController.cs" />
      <Compile Include="Assets\Play_Pop.cs" />
      <Compile Include="Assets\Scripts\BgManagerScript.cs" />
@@ -53,10 +52,12 @@
      <Compile Include="Assets\Scripts\CollideToDie.cs" />
      <Compile Include="Assets\Scripts\CrackScript.cs" />
      <Compile Include="Assets\Scripts\CreepScript.cs" />
+     <Compile Include="Assets\Scripts\FlyCreepScript.cs" />
      <Compile Include="Assets\Scripts\GameEventScript.cs" />
      <Compile Include="Assets\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\GodPlayerScript.cs" />
      <Compile Include="Assets\Scripts\MilestoneScript.cs" />
+     <Compile Include="Assets\Scripts\Minimap.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Runner.cs" />
      <Compile Include="Assets\Scripts\Scroll.cs" />
