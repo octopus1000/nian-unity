@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour {
 	public bool rushState = false;
 	public bool attackState = false;
 	public LayerMask touchInputMask;
+	public AudioSource attck_clip;
+	public AudioSource jumpup_clip;
+	public AudioSource jumpdown_clip;
 
 	// Use this for initialization
 	void Start () {
@@ -67,14 +70,19 @@ public class PlayerController : MonoBehaviour {
 		if (state == NORMAL || (state == IN_AIR && jump_count<2)) {
 			Debug.Log ("jump");
 			rb.velocity = new Vector2 (player_speed, player_height);
+			jumpup_clip.Play ();
 			anim.Play ("Knight2JumpUp", -1, 0f);
 			state = IN_AIR;
 			jump_count++;
 		}
 	}
 
+	public void jumpdown(){
+		jumpdown_clip.Play ();
+	}
 	public void attack (){
 		attackState = true;
+		attck_clip.Play ();
 		anim.Play ("Knight2Attack", -1, 0f);
 		Debug.Log ("Attack");
 	}
