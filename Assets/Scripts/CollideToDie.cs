@@ -10,6 +10,9 @@ public class CollideToDie : MonoBehaviour {
 	private Runner runner; //must exist
 	private Animator ani;
 	private int life;
+ 
+	public delegate void CreatureBehave();
+	public CreatureBehave die = null;
 
 	void Start() {
 		//set animator
@@ -54,18 +57,21 @@ public class CollideToDie : MonoBehaviour {
 	void takeDamage(int damage) {
 		life -= damage;
 		if (life <= 0) {
-			die();
+			if (die != null) {
+				die();
+			} else {
+				DieDefault();
+			}
 		}
 	}
 
-	void die() {
+	void DieDefault() {
 		//animation....
 		Debug.Log ("Creep die");
 		if (ani) {
-			ani.Play ("die");
+			ani.Play("die");
 		} else {
 			Destroy(gameObject);
 		}
 	}
-
 }
