@@ -21,7 +21,13 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
+	public void gameRestart(){
+		gameResume ();
+		Application.LoadLevel (Application.loadedLevel);
+	}
+
 	public void gameMenu() {
+		gameResume ();
 		Application.LoadLevel (0);
 	}
 
