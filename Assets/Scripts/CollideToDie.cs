@@ -5,6 +5,7 @@ public class CollideToDie : MonoBehaviour {
 
 	public bool isDestructable = false;
 	public bool isTrigger = true;
+	public bool isTrample = false;
 	public int lifeBound = 1;
 
 	private Runner runner; //must exist
@@ -39,7 +40,13 @@ public class CollideToDie : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.tag == "Player") {
-			damage();
+			//collision from bottom
+			if (isTrample &&  Vector3.Dot(col.contacts[0].normal, -Vector3.up) > 0.7f) {
+				takeDamage(1);
+				Debug.Log(col.contacts[0].normal);
+			} else {
+				damage();
+			}
 		}
 	}
 
@@ -67,7 +74,6 @@ public class CollideToDie : MonoBehaviour {
 
 	void DieDefault() {
 		//animation....
-		Debug.Log ("Creep die");
 		if (ani) {
 			ani.Play("die");
 		} else {

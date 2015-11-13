@@ -7,6 +7,7 @@ public class FlyCreepScript : MonoBehaviour {
 	public float v = 10;
 	public float amplitudeY = 5.0f;
 	public float omegaY = 4.0f;
+	public bool flyInWave = true;
 
 	private States state = States.Idle;
 	private float flyTime;
@@ -35,10 +36,14 @@ public class FlyCreepScript : MonoBehaviour {
 		switch (state) {
 		case States.Fly:
 			//transform.position = transform.position + new Vector3(-v * Time.deltaTime / 2, 0,0);
-			flyTime += Time.deltaTime;
-			float x = -v * flyTime;
-			float y = Mathf.Abs (amplitudeY*Mathf.Sin (omegaY*flyTime));
-			transform.position = new Vector3(x,y,0) + initPos;
+			if (flyInWave) {
+				flyTime += Time.deltaTime;
+				float x = -v * flyTime;
+				float y = Mathf.Abs (amplitudeY*Mathf.Sin (omegaY*flyTime));
+				transform.position = new Vector3(x,y,0) + initPos;
+			} else {
+				transform.position += new Vector3(-v, 0, 0) * Time.deltaTime;
+			}
 			break;
 		case States.Die:
 			transform.position = new Vector3(0,-2 * v * Time.deltaTime,0) + transform.position;
