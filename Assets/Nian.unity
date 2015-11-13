@@ -757,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &125145129
 BoxCollider2D:
@@ -1453,6 +1454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &194963369
 BoxCollider2D:
@@ -1596,7 +1598,7 @@ Transform:
   - {fileID: 582397929}
   - {fileID: 19297744}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &202302697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +1952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &273437225
 BoxCollider2D:
@@ -2745,6 +2748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &372636239
 BoxCollider2D:
@@ -3019,7 +3023,7 @@ RectTransform:
   m_Children:
   - {fileID: 1810155841}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3255,6 +3259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &449979982
 BoxCollider2D:
@@ -3342,6 +3347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &456163052
 BoxCollider2D:
@@ -3429,6 +3435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &473766150
 BoxCollider2D:
@@ -3904,6 +3911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &558802112
 BoxCollider2D:
@@ -4127,6 +4135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &576702259
 BoxCollider2D:
@@ -4372,6 +4381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!1 &614849349
 GameObject:
@@ -4848,6 +4858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &658541183
 BoxCollider2D:
@@ -5205,6 +5216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &695417484
 BoxCollider2D:
@@ -5423,6 +5435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &733154633
 BoxCollider2D:
@@ -6335,6 +6348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &860895233
 BoxCollider2D:
@@ -6822,6 +6836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &940927979
 BoxCollider2D:
@@ -6959,6 +6974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &961836387
 BoxCollider2D:
@@ -8787,6 +8803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1093688132
 BoxCollider2D:
@@ -9193,6 +9210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1145487838
 BoxCollider2D:
@@ -9276,6 +9294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1152023042
 BoxCollider2D:
@@ -9814,7 +9833,7 @@ Transform:
   - {fileID: 695417482}
   - {fileID: 1152023040}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &1298457737
 GameObject:
   m_ObjectHideFlags: 0
@@ -9905,6 +9924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1302921081
 BoxCollider2D:
@@ -10156,6 +10176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1334790785
 BoxCollider2D:
@@ -10365,6 +10386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1363764020
 BoxCollider2D:
@@ -11456,6 +11478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1515312267
 BoxCollider2D:
@@ -12237,6 +12260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1604994852
 BoxCollider2D:
@@ -12746,6 +12770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1681786714
 BoxCollider2D:
@@ -13328,48 +13353,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2140161956}
   m_RootOrder: 0
---- !u!1001 &1745053218
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 22.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .699999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: .550000012
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 420292, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8a50f432725911549877c735a1dccfc0, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &1755608781 stripped
 Transform:
   m_PrefabParentObject: {fileID: 413728, guid: ab90b8d9ebf301940901a8c324f726a0, type: 2}
@@ -14657,6 +14640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &1990141626
 BoxCollider2D:
@@ -15092,6 +15076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &2053640152
 BoxCollider2D:
@@ -15309,6 +15294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &2087022899
 BoxCollider2D:
@@ -15392,6 +15378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestructable: 0
   isTrigger: 1
+  isTrample: 0
   lifeBound: 1
 --- !u!61 &2104556929
 BoxCollider2D:
@@ -15479,7 +15466,7 @@ RectTransform:
   m_Children:
   - {fileID: 1707819168}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
