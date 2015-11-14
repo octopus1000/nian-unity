@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class Runner : MonoBehaviour {
-	public int life;
+	public int lifeBound = 10;
 
 	private float initX; //charater axis
+	private int life;
 	private int coins;
 	private bool shield = false;
 	private PlayerController controller;
@@ -14,6 +15,7 @@ public class Runner : MonoBehaviour {
 		controller = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
 		initX = transform.position.x;
+		life = lifeBound;
 	}
 
 	void Update() {
@@ -44,7 +46,7 @@ public class Runner : MonoBehaviour {
 
 	public int increaseLife(int num){
 		life += num;
-		Debug.Log (life);
+		life = life < lifeBound ? life : lifeBound;
 		return life;
 	}
 
