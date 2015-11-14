@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 413728}
   - 212: {fileID: 21244970}
-  - 114: {fileID: 11488680}
+  - 114: {fileID: 11401178}
   - 61: {fileID: 6165538}
   m_Layer: 0
   m_Name: Crack
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.18000007, y: .800000012, z: 0}
+  m_LocalPosition: {x: .219999999, y: -3.73000002, z: 0}
   m_LocalScale: {x: 2.42269588, y: 2.42269564, z: 2.42269564}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: .400000006, y: .50999999}
---- !u!114 &11488680
+--- !u!114 &11401178
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,9 +51,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 157476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e548fa69d8ef14439a7cf82a6e98b97, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e5831919491d2f41b098548e2d1d7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
 --- !u!212 &21244970
 SpriteRenderer:
   m_ObjectHideFlags: 1

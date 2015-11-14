@@ -9,12 +9,10 @@ public class Runner : MonoBehaviour {
 	private bool shield = false;
 	private PlayerController controller;
 	private Animator anim;
-	private Rigidbody2D bd;
 
 	void Start () {
 		controller = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
-		bd = GetComponent<Rigidbody2D> ();
 		initX = transform.position.x;
 	}
 
@@ -43,6 +41,13 @@ public class Runner : MonoBehaviour {
 	public void decreaseCoin(int num){
 		coins -= num;
 	}
+
+	public int increaseLife(int num){
+		life += num;
+		Debug.Log (life);
+		return life;
+	}
+
 	public int decreaseLife() {
 		//bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
 		anim.Play ("Knight2Hurt", -1, 0f);
