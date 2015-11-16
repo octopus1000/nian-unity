@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour {
 	//States
 	private const int NORMAL = 0;
 	private const int IN_AIR = 1;
-	private const int CROUCH = 2;
-	private const int DIE = 3;
+	private const int DIE = 2;
 	private int jump_count = 0;
 
 	private int state;
@@ -18,15 +17,16 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D rb;
 	private Runner runner;
 	private Animator anim;
-	public GameObject weapon;
-	public GameObject halo;
 	public GodPlayerScript godPlayer;
-	public bool rushState = false;
 	public bool attackState = false;
 	public LayerMask touchInputMask;
 	public AudioSource attck_clip;
 	public AudioSource jumpup_clip;
-	public AudioSource jumpdown_clip;
+
+	bool grounded = false;
+	public Transform groundCheck;
+	float groundRadius = 0.2f;
+	public LayerMask whatIsGround;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col) {
 		if (state == IN_AIR) {
-			anim.SetTrigger("onGround");
+			anim.SetBool ("Ground",true);
 			Debug.Log ("collision");
 			state = NORMAL;	
 			if(jump_count==2) 
@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+
+		anim.SetBool ("Ground",grounded);
+		anim.SetFloat ("vSpeed",rb.velocity.y);
+
 		float speedX = godPlayer.getSpeedX();
 		//lag behind god player
 		if (transform.position.x < godPlayer.transform.position.x) {
@@ -63,6 +68,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void run (){
 		Debug.Log ("run");
+		anim.SetBool ("Ground",true);
 		state = NORMAL;
 	}
 
@@ -71,15 +77,12 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log ("jump");
 			rb.velocity = new Vector2 (player_speed, player_height);
 			jumpup_clip.Play ();
-			anim.Play ("Knight2JumpUp", -1, 0f);
 			state = IN_AIR;
+			anim.SetBool("Ground",false);
 			jump_count++;
 		}
 	}
-
-	public void jumpdown(){
-		jumpdown_clip.Play ();
-	}
+	
 	public void attack (){
 		attackState = true;
 		attck_clip.Play ();
@@ -93,29 +96,29 @@ public class PlayerController : MonoBehaviour {
 		anim.Play ("Knight2Walk", -1, 0f);
 	}
 
-	public void magic(){
-		//rush
-		if (runner.getCoin () >= activate_num) {
-			Debug.Log("enough coin");
-			runner.decreaseCoin(activate_num);
-			StartCoroutine(MyCoroutine());
-		}
-
-	}
-	
-	public void accelerate (){
-		godPlayer.setSpeedX (accelerate_speed);
-	}
-
-	IEnumerator MyCoroutine(){
-		accelerate ();
-		anim.Play ("Knight2Rush",-1,0f);
-		rushState = true;
-		Debug.Log (rb.velocity);
-		yield return new WaitForSeconds (2.0f);
-		godPlayer.setSpeedX (player_speed);
-		rushState = false;
-		Debug.Log (rb.velocity);
-	}
+//	public void magic(){
+//		//rush
+//		if (runner.getCoin () >= activate_num) {
+//			Debug.Log("enough coin");
+//			runner.decreaseCoin(activate_num);
+//			StartCoroutine(MyCoroutine());
+//		}
+//
+//	}
+//	
+//	public void accelerate (){
+//		godPlayer.setSpeedX (accelerate_speed);
+//	}
+//
+//	IEnumerator MyCoroutine(){
+//		accelerate ();
+//		anim.Play ("Knight2Rush",-1,0f);
+//		rushState = true;
+//		Debug.Log (rb.velocity);
+//		yield return new WaitForSeconds (2.0f);
+//		godPlayer.setSpeedX (player_speed);
+//		rushState = false;
+//		Debug.Log (rb.velocity);
+//	}
 
 }
