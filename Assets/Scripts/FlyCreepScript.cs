@@ -32,7 +32,6 @@ public class FlyCreepScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (state);
 		switch (state) {
 		case States.Fly:
 			//transform.position = transform.position + new Vector3(-v * Time.deltaTime / 2, 0,0);

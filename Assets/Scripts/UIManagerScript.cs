@@ -25,7 +25,7 @@ public class UIManagerScript : MonoBehaviour {
 
 	void Update() {
 		updateCoin (runner.getCoin ());
-		updateLife (runner.life);
+		updateLife (runner.increaseLife(0));
 	}
 
 	public int updateCoin(int coinNum) {

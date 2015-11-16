@@ -2,20 +2,20 @@
 using System.Collections;
 
 public class Runner : MonoBehaviour {
-	public int life;
+	public int lifeBound = 10;
 
 	private float initX; //charater axis
+	private int life;
 	private int coins;
 	private bool shield = false;
 	private PlayerController controller;
 	private Animator anim;
-	private Rigidbody2D bd;
 
 	void Start () {
 		controller = GetComponent<PlayerController> ();
 		anim = GetComponent<Animator> ();
-		bd = GetComponent<Rigidbody2D> ();
 		initX = transform.position.x;
+		life = lifeBound;
 	}
 
 	void Update() {
@@ -43,6 +43,13 @@ public class Runner : MonoBehaviour {
 	public void decreaseCoin(int num){
 		coins -= num;
 	}
+
+	public int increaseLife(int num){
+		life += num;
+		life = life < lifeBound ? life : lifeBound;
+		return life;
+	}
+
 	public int decreaseLife() {
 		//bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
 		anim.Play ("Knight2Hurt", -1, 0f);

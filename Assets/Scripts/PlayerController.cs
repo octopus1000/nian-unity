@@ -87,12 +87,10 @@ public class PlayerController : MonoBehaviour {
 		attackState = true;
 		attck_clip.Play ();
 		anim.Play ("Knight2Attack", -1, 0f);
-		Debug.Log ("Attack");
 	}
 
 	public void finishAttack(){
 		attackState = false;
-		Debug.Log ("finislh attack");
 		anim.Play ("Knight2Walk", -1, 0f);
 	}
 
