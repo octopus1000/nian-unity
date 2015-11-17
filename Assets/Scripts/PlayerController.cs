@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour {
 	public void attack (){
 		attackState = true;
 		attck_clip.Play ();
-		anim.Play ("Knight2Attack", -1, 0f);
+		anim.SetTrigger("attack");
 	}
 
 	public void finishAttack(){

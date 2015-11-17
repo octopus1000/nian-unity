@@ -74,8 +74,10 @@ public class CollideToDie : MonoBehaviour {
 
 	void DieDefault() {
 		//animation....
+		Debug.Log ("mike die");
 		if (ani) {
-			ani.Play("die");
+			ani.SetTrigger("die");
+	//		ani.Play("die");
 		} else {
 			Destroy(gameObject);
 		}
