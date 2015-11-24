@@ -15,6 +15,7 @@ TagManager:
   - Life3
   - Life4
   - Life0
+  - enemy
   layers:
   - Default
   - TransparentFX

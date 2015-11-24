@@ -42,8 +42,8 @@ public class CollideToDie : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			//collision from bottom
 			if (isTrample &&  Vector3.Dot(col.contacts[0].normal, -Vector3.up) > 0.7f) {
+				explode(transform.position, 10);
 				takeDamage(1);
-				Debug.Log(col.contacts[0].normal);
 			} else {
 				damage();
 			}
@@ -54,14 +54,20 @@ public class CollideToDie : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
+	//attempt to damage player and receive feedback from player
 	void damage() {
 		//player is attacking
-		if (runner && runner.takeDamage (isDestructable) && isDestructable) {
+		if (life > 0 && runner && runner.takeDamage (isDestructable)) {
 			takeDamage(1);
 		}
 	}
 
+	//reduce creature itself's damage by @damage
 	void takeDamage(int damage) {
+		//no damage produced
+		if (!isDestructable || life <= 0)
+			return;
+
 		life -= damage;
 		if (life <= 0) {
 			if (die != null) {
@@ -72,12 +78,29 @@ public class CollideToDie : MonoBehaviour {
 		}
 	}
 
+	//cause damage on gameobjectWith tag enemy with radius range
+	//@param{vector3} center explode center
+	//@param{float} radius explode radius
+	void explode(Vector3 center, float radius) {
+		Collider2D[] colls = Physics2D.OverlapCircleAll ((Vector2)center, radius);
+
+		for (int i = 0; i < colls.Length; i++) {
+			Debug.Log(colls[i].name);
+			if (colls[i].tag == "enemy") {
+				colls[i].SendMessageUpwards("takeDamage", 1);
+			}
+		}
+	}
+
 	void DieDefault() {
-		//animation....
-		Debug.Log ("mike die");
+		//disable collider
+//		foreach(Collider2D c in GetComponents<Collider2D> ()) {
+//			c.enabled = false;
+//		}
+
+		//play animation
 		if (ani) {
 			ani.SetTrigger("die");
-	//		ani.Play("die");
 		} else {
 			Destroy(gameObject);
 		}

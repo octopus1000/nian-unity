@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21220404}
   - 95: {fileID: 9527642}
   - 61: {fileID: 6150690}
+  - 68: {fileID: 6866750}
   - 114: {fileID: 11427214}
   m_Layer: 0
   m_Name: mike_1
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.38999987, y: -6.15999985, z: 0}
+  m_LocalPosition: {x: 1.85213852, y: -5.95339966, z: 0}
   m_LocalScale: {x: .527573764, y: .527573764, z: .527573764}
   m_Children: []
   m_Father: {fileID: 0}
@@ -38,12 +39,26 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108890}
   m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -.039236404, y: -.338689625}
+  serializedVersion: 2
+  m_Size: {x: 4.06598663, y: 2.63262367}
+--- !u!68 &6866750
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108890}
+  m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 439d795ba2223164f891bda1962748e8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.039236404, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 4.06598663, y: 3.30999994}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -1.8265394, y: 1.55083907}
+  - {x: 1.86219096, y: 1.5151875}
 --- !u!95 &9527642
 Animator:
   serializedVersion: 3
@@ -72,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18f748a0425c1349845da20adbe187b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestructable: 0
+  isDestructable: 1
   isTrigger: 0
   isTrample: 1
   lifeBound: 1
@@ -94,7 +109,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -113,6 +130,14 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 439d795ba2223164f891bda1962748e8, type: 2}
+    - target: {fileID: 0}
+      propertyPath: isDestructable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 108890}

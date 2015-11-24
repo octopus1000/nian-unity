@@ -6,6 +6,8 @@ public class CreepScript : MonoBehaviour {
 	private Animator ani;
 	private bool attackState = false;
 	private Rigidbody2D bd;
+	private CollideToDie coreScript;
+
 	public float speedX = 10;
 
 	void Start() {
@@ -21,6 +23,9 @@ public class CreepScript : MonoBehaviour {
 			//enemy walk...
 			ani.SetFloat("speed", speedX);
 		}
+
+		coreScript = GetComponent<CollideToDie> ();
+		coreScript.die += die;
 	}
 
 
@@ -30,5 +35,11 @@ public class CreepScript : MonoBehaviour {
 			ani.SetBool("attack", true);
 			attackState = true;
 		}
+	}
+
+
+	void die() {
+		ani.SetTrigger("die");
+		bd.velocity = new Vector2(0,0);
 	}
 }
