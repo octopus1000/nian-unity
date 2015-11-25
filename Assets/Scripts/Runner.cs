@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Runner : MonoBehaviour {
 	public int lifeBound = 10;
+	public int crackTriggerLine = 10;
 
 	private float initX; //charater axis
 	private int life;
@@ -35,6 +36,11 @@ public class Runner : MonoBehaviour {
 
 	public int addCoin() {
 		coins += 1;
+
+		if (coins > crackTriggerLine) {
+			coins -= crackTriggerLine;
+			Utility.explode(transform.position, 20);
+		}
 		return coins;
 	}
 	public int getCoin(){
@@ -53,6 +59,7 @@ public class Runner : MonoBehaviour {
 	public int decreaseLife() {
 		//bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
 		anim.Play ("Knight2Hurt", -1, 0f);
+		Handheld.Vibrate ();
 		life -= 1;
 		//Debug.Log (life);
 		if (life <= 0) {

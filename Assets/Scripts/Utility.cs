@@ -13,4 +13,17 @@ public static class Utility {
 		}
 		return screenPosition.x < 0;
 	}
+
+	//cause damage on gameobjectWith tag enemy with radius range
+	//@param{vector3} center explode center
+	//@param{float} radius explode radius
+	public static void explode(Vector3 center, float radius) {
+		Collider2D[] colls = Physics2D.OverlapCircleAll ((Vector2)center, radius);
+		
+		for (int i = 0; i < colls.Length; i++) {
+			if (colls[i].tag == "enemy") {
+				colls[i].SendMessageUpwards("takeDamage", 1);
+			}
+		}
+	}
 }

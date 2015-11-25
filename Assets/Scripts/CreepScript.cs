@@ -6,6 +6,7 @@ public class CreepScript : MonoBehaviour {
 	private Animator ani;
 	private bool attackState = false;
 	private Rigidbody2D bd;
+	private bool active = false;
 	private CollideToDie coreScript;
 
 	public float speedX = 10;
@@ -18,6 +19,7 @@ public class CreepScript : MonoBehaviour {
 	void OnBecameVisible () {
 		//bd.isKinematic = false;
 		bd.velocity = new Vector2 (-speedX, 0);
+		active = true;
 
 		if (ani) {
 			//enemy walk...
@@ -30,7 +32,7 @@ public class CreepScript : MonoBehaviour {
 
 
 	void Update() {
-		if ((transform.position.x - Utility.playerPosX) < 10 && ani != null && !attackState) {
+		if (active && (transform.position.x - Utility.playerPosX) < 10 && ani != null && !attackState) {
 			bd.velocity = new Vector2(0,0);
 			ani.SetBool("attack", true);
 			attackState = true;
@@ -39,6 +41,8 @@ public class CreepScript : MonoBehaviour {
 
 
 	void die() {
+		Debug.Log ("orc die");
+		active = false;
 		ani.SetTrigger("die");
 		bd.velocity = new Vector2(0,0);
 	}
