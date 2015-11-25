@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 public class UIManagerScript : MonoBehaviour {
 	public Text coinTxt;
-	public Button upBtn, attackBtn;
-	public Text pauseBtnTxt;
 	public GameObject[] life_objects;
 	public Canvas canvas;
 	public Canvas pause;
@@ -13,6 +11,8 @@ public class UIManagerScript : MonoBehaviour {
 	public Sprite life_full;
 	public Sprite life_half;
 	public Sprite life_frame;
+
+	public GameObject inGameMenu;
 
 	void Start () {
 		canvas.enabled = false;
@@ -69,21 +69,7 @@ public class UIManagerScript : MonoBehaviour {
 		return 0;
 	}
 
-	public bool enableButton(bool status) {
-		upBtn.interactable = status;
-		attackBtn.interactable = status;
-		pause.enabled = false;
-		return status;
-	}
-
-	public bool enablePause(bool status) {
-		pauseBtnTxt.text = status ? "Pause" : "Resume";
-		pause.enabled = !status;
-		return status;
-	}
-
-	public bool enableRestart(bool status){
-		canvas.enabled = status;
-		return status;
+	public void toggleInGameMenu(bool on) {
+		inGameMenu.SetActive(on);
 	}
 }

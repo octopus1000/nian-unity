@@ -44,16 +44,14 @@ public class GameManagerScript : MonoBehaviour {
 		Time.timeScale = 0;
 		gameStatus = Status.Paused;
 		if (UI != null) {
-			UI.enableButton (false);
-			UI.enablePause (false);
+			UI.toggleInGameMenu(true);
 		}
 	}
 	public void gameResume() {
 		Time.timeScale = 1;
 		gameStatus = Status.Running;
 		if (UI != null) {
-			UI.enableButton (true);
-			UI.enablePause (true);
+			UI.toggleInGameMenu(false);
 		}
 	}
 
@@ -72,9 +70,6 @@ public class GameManagerScript : MonoBehaviour {
 	//show restart button
 	public void gameWin() {
 		gamePause ();
-		if (UI != null) {
-			UI.enableRestart (true);
-		}
 	}
 
 	public void mute(){
