@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class UIManagerScript : MonoBehaviour {
 	public Text coinTxt;
 	public GameObject[] life_objects;
-	public Canvas canvas;
-	public Canvas pause;
 	public Runner runner;
 	public Sprite life_full;
 	public Sprite life_half;
@@ -15,8 +13,6 @@ public class UIManagerScript : MonoBehaviour {
 	public GameObject inGameMenu;
 
 	void Start () {
-		canvas.enabled = false;
-		pause.enabled = false;
 		life_objects = new GameObject[5];
 		for (int j = 0; j < 5; j++) {
 			life_objects[j] = GameObject.FindGameObjectWithTag("Life" + j);	
