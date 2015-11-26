@@ -64,8 +64,16 @@ public class CollideToDie : MonoBehaviour {
 		}
 	}
 
+	void dieAfter(float time) {
+		Invoke ("dieAfterHelper", time);
+	}
+
+	void dieAfterHelper() {
+		takeDamage (lifeBound);
+	}
+
 	//reduce creature itself's damage by @damage
-	void takeDamage(int damage) {
+	void takeDamage(int damage, float time = 0) {
 		//no damage produced
 		if (!isDestructable || life <= 0)
 			return;
@@ -106,5 +114,9 @@ public class CollideToDie : MonoBehaviour {
 		} else {
 			Destroy(gameObject);
 		}
+	}
+
+	void FinishDie() {
+		Destroy (gameObject);
 	}
 }

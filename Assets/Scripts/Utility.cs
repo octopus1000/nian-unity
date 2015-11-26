@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class Utility {
+public static class Utility{
 	public static float playerPosX;
 
 	public static bool outOfScreen (Vector3 pos, Vector3 scale) {
@@ -22,7 +22,8 @@ public static class Utility {
 		
 		for (int i = 0; i < colls.Length; i++) {
 			if (colls[i].tag == "enemy") {
-				colls[i].SendMessageUpwards("takeDamage", 1);
+				float ratio = Vector3.Distance(center,colls[i].transform.position)/radius;
+				colls[i].SendMessageUpwards("dieAfter", ratio* 0.8f);
 			}
 		}
 	}
