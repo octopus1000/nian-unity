@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameManagerScript : MonoBehaviour {
-	enum Status {Running, Paused};
+	enum Status {Running, Paused, End};
 	
 	private Status gameStatus = Status.Running;
 	private UIManagerScript UI;
@@ -36,8 +36,18 @@ public class GameManagerScript : MonoBehaviour {
 		Application.LoadLevel (1);
 	}
 
+	public void loadLevel(int level) {
+		gameResume ();
+		Application.LoadLevel (level);
+	}
+
 	public void gameOver() {
-		Application.LoadLevel (2);
+		if (gameStatus == Status.End)
+			return;
+		if (UI)
+			UI.toggleInGameReport (true);
+		Time.timeScale = 0;
+		gameStatus = Status.End;
 	}
 	
 	public void gamePause() {
@@ -52,6 +62,7 @@ public class GameManagerScript : MonoBehaviour {
 		gameStatus = Status.Running;
 		if (UI != null) {
 			UI.toggleInGameMenu(false);
+			UI.toggleInGameReport(false);
 		}
 	}
 
@@ -69,7 +80,10 @@ public class GameManagerScript : MonoBehaviour {
 
 	//show restart button
 	public void gameWin() {
-		gamePause ();
+		if (UI) {
+			UI.enableNextLev ();
+		}
+		gameOver ();
 	}
 
 	public void mute(){

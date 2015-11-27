@@ -11,8 +11,12 @@ public class UIManagerScript : MonoBehaviour {
 	public Sprite life_frame;
 
 	public GameObject inGameMenu;
+	public GameObject inGameReport;
+	public Text report;
+	public Button nextLev;
 
 	void Start () {
+		Debug.Log (inGameReport);
 		life_objects = new GameObject[5];
 		for (int j = 0; j < 5; j++) {
 			life_objects[j] = GameObject.FindGameObjectWithTag("Life" + j);	
@@ -66,6 +70,21 @@ public class UIManagerScript : MonoBehaviour {
 	}
 
 	public void toggleInGameMenu(bool on) {
-		inGameMenu.SetActive(on);
+		if (inGameMenu)
+			inGameMenu.SetActive(on);
+	}
+
+	public void toggleInGameReport(bool on) {
+		if (inGameReport) {
+			inGameReport.SetActive (on);
+			if (on) {
+				report.text = "Crack:" + runner.getCoin() + "\nLife:" + runner.increaseLife(0);
+			}
+		}
+	}
+
+	public void enableNextLev () {
+		if (nextLev)
+			nextLev.interactable = true;
 	}
 }

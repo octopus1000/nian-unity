@@ -20,7 +20,8 @@ public class Runner : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Utility.outOfScreen(transform.position, new Vector3(0,0,0))) {
+		if (Utility.outOfScreen(transform.position, new Vector3(0,0,0)) && life > 0) {
+			life = 0;
 			Debug.Log("player out of screen");
 			die();
 		}
@@ -63,6 +64,7 @@ public class Runner : MonoBehaviour {
 		life -= 1;
 		//Debug.Log (life);
 		if (life <= 0) {
+			life = 0;
 			die();
 		}
 		return life;
