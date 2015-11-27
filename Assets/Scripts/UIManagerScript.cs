@@ -4,19 +4,19 @@ using UnityEngine.UI;
 
 public class UIManagerScript : MonoBehaviour {
 	public Text coinTxt;
-	public Button upBtn, attackBtn;
-	public Text pauseBtnTxt;
 	public GameObject[] life_objects;
-	public Canvas canvas;
-	public Canvas pause;
 	public Runner runner;
 	public Sprite life_full;
 	public Sprite life_half;
 	public Sprite life_frame;
 
+	public GameObject inGameMenu;
+	public GameObject inGameReport;
+	public Text report;
+	public Button nextLev;
+
 	void Start () {
-		canvas.enabled = false;
-		pause.enabled = false;
+		Debug.Log (inGameReport);
 		life_objects = new GameObject[5];
 		for (int j = 0; j < 5; j++) {
 			life_objects[j] = GameObject.FindGameObjectWithTag("Life" + j);	
@@ -69,21 +69,22 @@ public class UIManagerScript : MonoBehaviour {
 		return 0;
 	}
 
-	public bool enableButton(bool status) {
-		upBtn.interactable = status;
-		attackBtn.interactable = status;
-		pause.enabled = false;
-		return status;
+	public void toggleInGameMenu(bool on) {
+		if (inGameMenu)
+			inGameMenu.SetActive(on);
 	}
 
-	public bool enablePause(bool status) {
-		pauseBtnTxt.text = status ? "Pause" : "Resume";
-		pause.enabled = !status;
-		return status;
+	public void toggleInGameReport(bool on) {
+		if (inGameReport) {
+			inGameReport.SetActive (on);
+			if (on) {
+				report.text = "Crack:" + runner.getCoin() + "\nLife:" + runner.increaseLife(0);
+			}
+		}
 	}
 
-	public bool enableRestart(bool status){
-		canvas.enabled = status;
-		return status;
+	public void enableNextLev () {
+		if (nextLev)
+			nextLev.interactable = true;
 	}
 }

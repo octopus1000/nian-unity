@@ -11,11 +11,9 @@ public class PlayerController : MonoBehaviour {
 
 	private int state;
 	private int player_speed = 10;
-	private int accelerate_speed = 20;
 	private int player_height = 22;
 	private int activate_num = 10;
 	private Rigidbody2D rb;
-	private Runner runner;
 	private Animator anim;
 	public GodPlayerScript godPlayer;
 	public bool attackState = false;
@@ -32,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
-		runner = GetComponent<Runner> ();
 		run ();
 	}
 
@@ -48,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate(){
+	void Update(){
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 
 		anim.SetBool ("Ground",grounded);
@@ -64,6 +61,15 @@ public class PlayerController : MonoBehaviour {
 		//use add force instead of change speed directly to simulate physics
 		rb.AddForce ( (targetV - rb.velocity) * rb.mass / Time.fixedDeltaTime, ForceMode2D.Force);
 		//rb.velocity = targetV;
+
+
+		//add keyboard control for debugging using unity ide
+		if (Input.GetKey ("up")) {
+			jump();
+		}
+		if (Input.GetKey ("space")) {
+			attack ();
+		}
 	}
 
 	public void run (){
