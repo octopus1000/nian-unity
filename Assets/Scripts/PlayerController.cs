@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 
+
 	// Use this for initialization
 	void Start () {
+		//Time.timeScale = 1;
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		run ();
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour {
 	public void jump (){
 		if (state == NORMAL || (state == IN_AIR && jump_count<2)) {
 			Debug.Log ("jump");
+			rb.transform.position += new Vector3(0,1f,0);
 			rb.velocity = new Vector2 (player_speed, player_height);
 			jumpup_clip.Play ();
 			state = IN_AIR;
