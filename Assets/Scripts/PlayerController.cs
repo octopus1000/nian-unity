@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 
+	private int attack_num = 0;
+	public bool DistanceAttack = false;
+	public GameObject fireball;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -91,8 +95,23 @@ public class PlayerController : MonoBehaviour {
 	
 	public void attack (){
 		attackState = true;
-		attck_clip.Play ();
-		anim.SetTrigger("attack");
+		if (!DistanceAttack) {
+			attck_clip.Play ();
+			attack_num++;
+			if (attack_num % 4 == 0) {
+				anim.SetTrigger ("attack_3");
+			} else if (attack_num % 3 == 0) {
+				anim.SetTrigger ("attack_2");
+			} else {
+				anim.SetTrigger ("attack");
+			}
+		} else {
+			//sound
+			GameObject fb = Instantiate(fireball);
+			fb.transform.position = new Vector3(transform.position.x + 2,transform.position.y + 0.7f,transform.position.z);
+			fb.GetComponent<Rigidbody2D>().velocity = new Vector2(40,0);
+			anim.SetTrigger("DistanceAttack");
+		}
 	}
 
 	public void finishAttack(){
@@ -100,6 +119,14 @@ public class PlayerController : MonoBehaviour {
 		anim.Play ("Knight2Walk", -1, 0f);
 	}
 
+	public void DistanceAttackTigger(){
+		DistanceAttack = true;
+		Invoke ("resetAttack",10.0f);
+	}
+
+	public void resetAttack(){
+		DistanceAttack = false;
+	}
 //	public void magic(){
 //		//rush
 //		if (runner.getCoin () >= activate_num) {

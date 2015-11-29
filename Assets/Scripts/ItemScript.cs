@@ -3,9 +3,10 @@ using System.Collections;
 
 public class ItemScript : MonoBehaviour {
 	
-	public int type =  0; //0 - normal item, 1 - increase crack, 2 - increase health
+	public int type =  0; //0 - normal item, 1 - increase crack, 2 - increase health, 3 - Distance Attack Trigger
 
 	Runner runner;
+	PlayerController controller;
 
 	//collect garbage
 	void OnBecameInvisible() {
@@ -22,6 +23,9 @@ public class ItemScript : MonoBehaviour {
 				case 2:
 					runner.increaseLife (1);
 					break;
+				case 3:
+					controller.DistanceAttackTigger();
+					break;
 				}
 				Destroy(gameObject);
 			}
@@ -34,6 +38,7 @@ public class ItemScript : MonoBehaviour {
 			GameObject player = GameObject.FindGameObjectWithTag("Player");
 			if (player) {
 				runner = player.GetComponent<Runner>();
+				controller = player.GetComponent<PlayerController>();
 			}
 		}
 		return runner ? true : false;
