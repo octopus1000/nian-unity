@@ -38,6 +38,12 @@ public class CollideToDie : MonoBehaviour {
 		if (isTrigger && col.tag == "PlayerParts") {
 			damage();
 		}
+
+		//collide with fireball
+		if (col.tag == "weapon") {
+			if (takeDamage(1))
+				Destroy(col.gameObject);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {
@@ -48,6 +54,12 @@ public class CollideToDie : MonoBehaviour {
 				takeDamage(1);
 			} else {
 				damage();
+				if (isTrample) {
+					//disable collider
+					foreach(Collider2D c in GetComponents<Collider2D> ()) {
+						c.enabled = false;
+					}
+				}
 			}
 		}
 	}
@@ -73,10 +85,11 @@ public class CollideToDie : MonoBehaviour {
 	}
 
 	//reduce creature itself's damage by @damage
-	void takeDamage(int damage, float time = 0) {
+	//@return {bool} if it is effective damage
+	bool takeDamage(int damage, float time = 0) {
 		//no damage produced
 		if (!isDestructable || life <= 0)
-			return;
+			return false;
 
 		life -= damage;
 		if (life <= 0) {
@@ -86,6 +99,7 @@ public class CollideToDie : MonoBehaviour {
 				DieDefault();
 			}
 		}
+		return true;
 	}
 
 	//cause damage on gameobjectWith tag enemy with radius range
@@ -104,9 +118,9 @@ public class CollideToDie : MonoBehaviour {
 
 	void DieDefault() {
 		//disable collider
-//		foreach(Collider2D c in GetComponents<Collider2D> ()) {
-//			c.enabled = false;
-//		}
+		foreach(Collider2D c in GetComponents<Collider2D> ()) {
+			c.enabled = false;
+		}
 
 		//play animation
 		if (ani) {
