@@ -38,10 +38,10 @@ public class Runner : MonoBehaviour {
 	public int addCoin() {
 		coins += 1;
 
-		if (coins > crackTriggerLine) {
-			coins -= crackTriggerLine;
-			Utility.explode(transform.position, 20);
-		}
+//		if (coins > crackTriggerLine) {
+//			coins -= crackTriggerLine;
+//			Utility.explode(transform.position, 20);
+//		}
 		return coins;
 	}
 	public int getCoin(){

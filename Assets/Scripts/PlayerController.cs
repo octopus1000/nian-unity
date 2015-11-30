@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 
 	private int state;
 	private int player_speed = 10;
-	private int player_height = 22;
+	private int player_height = 20;
 	private int activate_num = 10;
 	private Rigidbody2D rb;
 	private Animator anim;
@@ -31,11 +31,15 @@ public class PlayerController : MonoBehaviour {
 	public GameObject fireball;
 	private bool isCd = false;
 
+	Runner runner;
+
 	// Use this for initialization
 	void Start () {
 		//Time.timeScale = 1;
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		runner = player.GetComponent<Runner>();
 		run ();
 	}
 
@@ -87,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 	public void jump (){
 		if (state == NORMAL || (state == IN_AIR && jump_count<2)) {
 			Debug.Log ("jump");
-			rb.transform.position += new Vector3(0,1f,0);
+			rb.transform.position += new Vector3(0,1.5f,0);
 			rb.velocity = new Vector2 (player_speed, player_height);
 			jumpup_clip.Play ();
 			state = IN_AIR;
@@ -115,7 +119,7 @@ public class PlayerController : MonoBehaviour {
 				Invoke ("changeCd", 1f);
 				GameObject fb = Instantiate(fireball);
 				fb.transform.position = new Vector3(transform.position.x + 2,transform.position.y + 0.7f,transform.position.z);
-				fb.GetComponent<Rigidbody2D>().velocity = new Vector2(40,0);
+				fb.GetComponent<Rigidbody2D>().velocity = new Vector2(30,0);
 				anim.SetTrigger("DistanceAttack");
 
 			}
@@ -132,13 +136,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void DistanceAttackTigger(){
-		DistanceAttack = true;
-		Invoke ("resetAttack",10.0f);
+		if (runner.getCoin () >= activate_num) {
+			DistanceAttack = true;
+			Invoke ("resetAttack", 10.0f);
+			runner.decreaseCoin(activate_num);
+		}
 	}
 
 	public void resetAttack(){
 		DistanceAttack = false;
 	}
+//
 //	public void magic(){
 //		//rush
 //		if (runner.getCoin () >= activate_num) {
