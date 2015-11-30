@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 	private int attack_num = 0;
 	public bool DistanceAttack = false;
 	public GameObject fireball;
+	private bool isCd = false;
 
 	// Use this for initialization
 	void Start () {
@@ -109,11 +110,20 @@ public class PlayerController : MonoBehaviour {
 			}
 		} else {
 			//sound
-			GameObject fb = Instantiate(fireball);
-			fb.transform.position = new Vector3(transform.position.x + 2,transform.position.y + 0.7f,transform.position.z);
-			fb.GetComponent<Rigidbody2D>().velocity = new Vector2(40,0);
-			anim.SetTrigger("DistanceAttack");
+			if(!isCd){
+				isCd = true;
+				Invoke ("changeCd", 1f);
+				GameObject fb = Instantiate(fireball);
+				fb.transform.position = new Vector3(transform.position.x + 2,transform.position.y + 0.7f,transform.position.z);
+				fb.GetComponent<Rigidbody2D>().velocity = new Vector2(40,0);
+				anim.SetTrigger("DistanceAttack");
+
+			}
 		}
+	}
+
+	public void changeCd(){
+		isCd = false;
 	}
 
 	public void finishAttack(){
