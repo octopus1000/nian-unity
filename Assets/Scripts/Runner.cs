@@ -2,43 +2,94 @@
 using System.Collections;
 
 public class Runner : MonoBehaviour {
-	public int life;
-	public float speed;
+	public int lifeBound = 10;
+	public int crackTriggerLine = 10;
 
-	private float initX;
-	private Rigidbody2D body;
+	private float initX; //charater axis
+	private int life;
 	private int coins;
+	private bool shield = false;
+	private PlayerController controller;
+	private Animator anim;
 
 	void Start () {
+		controller = GetComponent<PlayerController> ();
+		anim = GetComponent<Animator> ();
 		initX = transform.position.x;
-		body = GetComponent<Rigidbody2D> ();
-		body.AddForce (new Vector2 (3, 0), ForceMode2D.Impulse);
+		life = lifeBound;
 	}
 
-	// Update is called once per frame
-	void Update () {
-		speed = body.velocity.x;
+	void Update() {
+		if (Utility.outOfScreen(transform.position, new Vector3(0,0,0)) && life > 0) {
+			life = 0;
+			Debug.Log("player out of screen");
+			die();
+		}
 	}
 
+	void FixedUpdate () {
+		Utility.playerPosX = transform.position.x;
+	}
+	
 	public float getRunDist () {
 		return transform.position.x - initX;
 	}
 
 	public int addCoin() {
 		coins += 1;
+
+//		if (coins > crackTriggerLine) {
+//			coins -= crackTriggerLine;
+//			Utility.explode(transform.position, 20);
+//		}
 		return coins;
 	}
+	public int getCoin(){
+		return coins;
+	}
+	public void decreaseCoin(int num){
+		coins -= num;
+	}
+
+	public int increaseLife(int num){
+		life += num;
+		life = life < lifeBound ? life : lifeBound;
+		return life;
+	}
+
 	public int decreaseLife() {
+		//bd.AddForce (new Vector2 (-2000 * bd.mass, 0), ForceMode2D.Force);
+		anim.Play ("Knight2Hurt", -1, 0f);
+		Handheld.Vibrate ();
 		life -= 1;
+		//Debug.Log (life);
+		if (life <= 0) {
+			life = 0;
+			die();
+		}
 		return life;
 	}
 	public void die() {
-		GameObject gameController = GameObject.FindWithTag("GameController");
-		if (gameController) {
-			GameManagerScript script = gameController.GetComponent<GameManagerScript>();
-			if (script) {
-				script.gameOver();
-			}
+		GameEventScript.TriggerGameOver();
+	}
+
+	//@param {bool} isDestructable
+	//@return {bool} whether player is attacking
+	public bool takeDamage(bool isDestructable) {
+		//when obstacles can be destroyed by attacking
+		if (isDestructable && controller.attackState) {
+			return controller.attackState;
 		}
+
+		if (!shield) {
+			decreaseLife ();
+			shield = true;
+			Invoke("removeShield", 1f);
+		}
+		return controller.attackState;
+	}
+
+	void removeShield() {
+		shield = false;
 	}
 }

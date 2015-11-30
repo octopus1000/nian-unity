@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: 68a98909c430f4fd98d9c4bd0f90ed6d
+timeCreated: 1447715308
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Mike-the-spike_0
+    21300002: Mike-the-spike_1
+    21300004: Mike-the-spike_2
+    21300006: Mike-the-spike_3
+    21300008: Mike-the-spike_4
+    21300010: Mike-the-spike_5
+    21300012: Mike-the-spike_6
+    21300014: Mike-the-spike_7
+    21300016: Mike-the-spike_8
+    21300018: Mike-the-spike_9
+    21300020: Mike-the-spike_10
+    21300022: Mike-the-spike_11
+    21300024: Mike-the-spike_12
+    21300026: Mike-the-spike_13
+    21300028: Mike-the-spike_14
+    21300030: Mike-the-spike_15
+    21300032: Mike-the-spike_16
+    21300034: Mike-the-spike_17
+    21300036: Mike-the-spike_18
+    21300038: Mike-the-spike_19
+    21300040: Mike-the-spike_20
+    21300042: Mike-the-spike_21
+    21300044: Mike-the-spike_22
+    21300046: Mike-the-spike_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Mike-the-spike_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 2610
+        width: 540
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_1
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 2610
+        width: 540
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_2
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 2613
+        width: 540
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_3
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 2610
+        width: 539
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 2087
+        width: 540
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_5
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 2089
+        width: 540
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_6
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2089
+        width: 540
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_7
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 2092
+        width: 540
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_8
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1478
+        width: 540
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_9
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 1491
+        width: 509
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_10
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 1503
+        width: 506
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_11
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 945
+        width: 528
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_12
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 955
+        width: 528
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_13
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 962
+        width: 529
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 689
+        height: 642
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_15
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 84
+        width: 601
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_16
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 44
+        width: 493
+        height: 525
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Mike-the-spike_18
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 119
+        width: 344
+        height: 395
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
