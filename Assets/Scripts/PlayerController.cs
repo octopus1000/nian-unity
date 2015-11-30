@@ -96,8 +96,8 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	public void attack (){
-		attackState = true;
 		if (!DistanceAttack) {
+			attackState = true;
 			attck_clip.Play ();
 			attack_num++;
 			if (attack_num % 4 == 0) {
