@@ -6,6 +6,7 @@ public class CollideToDie : MonoBehaviour {
 	public bool isDestructable = false;
 	public bool isTrigger = true;
 	public bool isTrample = false;
+	public bool isExplosive = false;
 	public int lifeBound = 1;
 
 	private Runner runner; //must exist
@@ -40,7 +41,7 @@ public class CollideToDie : MonoBehaviour {
 		}
 
 		//collide with fireball
-		if (col.tag == "weapon") {
+		if (col.tag == "weapon" && !isTrample) {
 			if (takeDamage(1))
 				Destroy(col.gameObject);
 		}
@@ -50,7 +51,9 @@ public class CollideToDie : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			//collision from bottom
 			if (isTrample &&  Vector3.Dot(col.contacts[0].normal, -Vector3.up) > 0.7f) {
-				Utility.explode(transform.position, 10);
+				if (isExplosive) {
+					Utility.explode(transform.position, 10);
+				}
 				takeDamage(1);
 			} else {
 				damage();
